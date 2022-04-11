@@ -13,9 +13,9 @@ class WagtailCoreExtension(Extension):
         super().__init__(environment)
 
         self.environment.globals.update({
-            'pageurl': jinja2.contextfunction(pageurl),
-            'slugurl': jinja2.contextfunction(slugurl),
-            'wagtail_site': jinja2.contextfunction(wagtail_site),
+            'pageurl': jinja2.pass_context(pageurl),
+            'slugurl': jinja2.pass_context(slugurl),
+            'wagtail_site': jinja2.pass_context(wagtail_site),
             'wagtail_version': wagtail_version,
         })
         self.environment.filters.update({
